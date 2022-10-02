@@ -1,0 +1,61 @@
+////////////colors
+$blackBackground: #040404;
+$textBlack: #181818;
+$gold: #b9961b;
+$textWhite: #f5fdff;
+
+/************************************************* base styles ***************************************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: $textWhite;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: $blackBackground;
+  // background: url("../images/body-background.png") no-repeat center fixed;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
+}
+/***************************************** end of base styles ******************************************/
+.nav-container {
+  padding-top: 50px;
+
+  .image-wrap {
+    width: max-content;
+    margin-left: 50px;
+
+    > img {
+      width: 100%;
+    }
+  }
+
+  .menu-bar {
+    float: right;
+    transform: rotate(-90deg);
+    width: max-content;
+    margin-top: 50px;
+
+    .nav {
+      width: 100%;
+
+      #nav-items-wrap {
+        list-style: none;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+
+        .nav-links {
+          color: $textWhite;
+        }
+      }
+    }
+  }
+}
