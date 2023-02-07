@@ -6,56 +6,98 @@ $textWhite: #f5fdff;
 
 /************************************************* base styles ***************************************/
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  color: $textWhite;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: $textWhite;
 }
 
 body {
-  padding: 0;
-  margin: 0;
-  background-color: $blackBackground;
-  // background: url("../images/body-background.png") no-repeat center fixed;
-  // -webkit-background-size: cover;
-  // -moz-background-size: cover;
-  // -o-background-size: cover;
-  // background-size: cover;
+    padding: 0;
+    margin: 0;
+    background-color: $blackBackground;
+    position: relative;
+    overflow: hidden;
+
+    // background: url("../images/body-background.png") no-repeat center fixed;
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    // -o-background-size: cover;
+    // background-size: cover;
 }
+
 /***************************************** end of base styles ******************************************/
-.nav-container {
-  padding-top: 50px;
+// .nav-container {
+//     padding-top: 50px;
 
-  .image-wrap {
-    width: max-content;
-    margin-left: 50px;
+//     .image-wrap {
+//         width: max-content;
+//         margin-left: 50px;
 
-    > img {
-      width: 100%;
-    }
-  }
+//         >img {
+//             width: 100%;
+//         }
+//     }
 
-  .menu-bar {
-    float: right;
-    transform: rotate(-90deg);
-    width: max-content;
-    margin-top: 50px;
+//     .menu-bar {
+//         float: right;
+//         width: max-content;
+//         margin-top: 50px;
 
-    .nav {
-      width: 100%;
+//         .nav {
+//             width: 100%;
 
-      #nav-items-wrap {
-        list-style: none;
+//             #nav-items-wrap {
+//                 list-style: none;
 
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 2rem;
+//                 display: flex;
+//                 flex-direction: row;
+//                 align-items: center;
+//                 gap: 2rem;
 
-        .nav-links {
-          color: $textWhite;
+//                 .nav-links {
+//                     color: $textWhite;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+.catalogue {
+    margin: 10vh auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    .text-background {
+        position: absolute;
+        top: 5%;
+        left: 25%;
+
+        p {
+            font-family: "Ubuntu";
+            font-size: 24em;
+            margin: 0;
+            font-weight: 700;
+            color: $textBlack;
+            opacity: 0.66;
+            text-shadow: -31px 4px 37px rgba(0, 0, 0, 0.25);
+            text-align: center;
+
         }
-      }
     }
-  }
+
+    .ui-design,
+    .three-design {
+        z-index: 1;
+
+        p {
+            color: $textWhite;
+
+            a {
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+    }
 }
