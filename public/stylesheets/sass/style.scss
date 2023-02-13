@@ -4,6 +4,7 @@ $textBlack: #181818;
 $gold: #b9961b;
 $textWhite: #f5fdff;
 
+
 /************************************************* base styles ***************************************/
 * {
     margin: 0;
@@ -16,12 +17,52 @@ body {
     margin: 0;
     background-color: $blackBackground;
     position: relative;
-    min-height: 100vh;
+    overflow: hidden;
     // background: url("../images/body-background.png") no-repeat center fixed;
     // -webkit-background-size: cover;
     // -moz-background-size: cover;
     // -o-background-size: cover;
     // background-size: cover;
+}
+
+@mixin textbackgroundStyles {
+    position: absolute;
+    font-family: "Ubuntu";
+    font-size: 15em;
+    font-weight: 700;
+    color: $textBlack;
+    opacity: 0.34;
+    text-shadow: -31px 4px 37px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.pexel {
+    position: absolute;
+    z-index: 3
+}
+
+#pexel-1 {
+    width: 20px;
+    top: 35%;
+    left: 75%;
+}
+
+#pexel-2 {
+    width: 20px;
+    top: 40%;
+    left: 30%;
+}
+
+#pexel-3 {
+    width: 25px;
+    top: 55%;
+    left: 15%;
+}
+
+#pexel-4 {
+    width: 50px;
+    top: 90%;
+    left: 35%;
 }
 
 /***************************************** end of base styles ******************************************/
@@ -60,43 +101,71 @@ body {
 //         }
 //     }
 // }
+
 .catalogue {
     /* Container for the links to each category*/
-    position: relative;
-    margin: 10vh auto;
+    margin: 2vh 0 5vh 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     gap: 30px;
 
-    .text-background {
-        position: absolute;
-        top: -20%;
-        left: 25%;
+    .des-wrap {
+        top: 10%;
+        left: 30%;
+        @include textbackgroundStyles()
+    }
 
-        .des-wrap,
-        .ign-wrap {
-            font-family: "Ubuntu";
-            font-size: 15em;
-            font-weight: 700;
-            color: $textBlack;
-            opacity: 0.34;
-            text-shadow: -31px 4px 37px rgba(0, 0, 0, 0.25);
-            text-align: center;
-        }
+    .ign-wrap {
+        top: 60%;
+        left: 30%;
+        @include textbackgroundStyles()
     }
 
     .ui-design,
-    .three-design {
+    .three-d-design {
         z-index: 1;
+
+        img {
+            width: 100%;
+        }
 
         a {
             text-decoration: none;
             cursor: pointer;
             color: $textWhite;
+        }
 
-            &:hover {
+        &:hover {
+
+            /* fade out the element on hover*/
+            @keyframes fade {
+
+                0% {
+                    opacity: 1
+                }
+
+                50% {
+                    opacity: 0.5;
+                }
+
+                75% {
+                    opacity: 0.25;
+                }
+
+                100% {
+                    opacity: 0;
+                }
+            }
+
+            img {
+                opacity: 0;
+                animation: fade .5s ease-in-out;
+            }
+
+            a {
+                /* Neon effect on hover */
                 color: $textWhite;
                 text-shadow: 0 0 7px #fff,
                     0 0 10px #fff,
@@ -107,6 +176,13 @@ body {
                     0 0 102px #B9961B,
                     0 0 151px #B9961B;
             }
+
         }
+    }
+
+    @media screen and (min-width: 576px) {
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 20vh 0;
     }
 }
