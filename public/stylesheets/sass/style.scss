@@ -3,6 +3,7 @@ $blackBackground: #040404;
 $textBlack: #181818;
 $gold: #b9961b;
 $textWhite: #f5fdff;
+$bp-desktop: 576px;
 
 
 /************************************************* base styles ***************************************/
@@ -30,7 +31,7 @@ body {
 @mixin textbackgroundStyles {
     position: absolute;
     font-family: "Ubuntu";
-    font-size: 15em;
+    font-size: 18em;
     font-weight: 700;
     color: $textBlack;
     opacity: 0.34;
@@ -50,64 +51,46 @@ body {
 
 #pexel-1 {
     width: 20px;
-    top: 20%;
+    top: 15%;
     left: 75%;
 }
 
 #pexel-2 {
     width: 20px;
-    top: 30%;
-    left: 35%;
+    top: 20%;
+    left: 30%;
 }
 
 #pexel-3 {
     width: 25px;
     top: 40%;
-    left: 15%;
+    left: 10%;
 }
 
 #pexel-4 {
     width: 35px;
-    top: 70%;
+    top: 75%;
     left: 45%;
 }
 
+.on_desktop {
+    display: none;
+
+    @media screen and (min-width: $bp-desktop) {
+        display: block;
+    }
+}
+
+.on_mobile {
+    display: block;
+
+    @media screen and (min-width: $bp-desktop) {
+        display: none;
+    }
+}
+
 /***************************************** end of base styles ******************************************/
-// .nav-container {
-//     padding-top: 50px;
 
-//     .image-wrap {
-//         width: max-content;
-//         margin-left: 50px;
-
-//         >img {
-//             width: 100%;
-//         }
-//     }
-
-//     .menu-bar {
-//         float: right;
-//         width: max-content;
-//         margin-top: 50px;
-
-//         .nav {
-//             width: 100%;
-
-//             #nav-items-wrap {
-//                 list-style: none;
-
-//                 display: flex;
-//                 flex-direction: row;
-//                 align-items: center;
-//                 gap: 2rem;
-
-//                 .nav-links {
-//                     color: $textWhite;
-//                 }
-//             }
-//         }
-//     }
-// }
 
 .catalogue {
     /* Container for the links to each category*/
@@ -127,7 +110,7 @@ body {
         @include textbackgroundStyles();
 
         @media screen and (min-width: 576px) {
-            top: -50%;
+            top: -15%;
             left: 25%;
         }
     }
@@ -139,14 +122,12 @@ body {
 
         @media screen and (min-width: 576px) {
             left: 25%;
-
         }
     }
 
     .ui-design,
     .three-d-design {
         z-index: 1;
-
         text-align: center;
 
         .ui-image,
@@ -156,7 +137,8 @@ body {
             justify-content: center;
 
             img {
-                width: 250px;
+                width: 100%;
+                height: auto;
             }
         }
 
@@ -213,7 +195,7 @@ body {
         }
 
         @media screen and (min-width: 576px) {
-            width: 40%;
+            width: 35%;
         }
     }
 
@@ -221,7 +203,8 @@ body {
         flex-direction: row;
         justify-content: space-around;
         gap: 30px;
-        margin: 20vh auto;
+        margin: 5vh auto;
         padding: 0;
+        width: 100%;
     }
 }

@@ -27,26 +27,44 @@ body {
 
 #pexel-1 {
   width: 20px;
-  top: 20%;
+  top: 15%;
   left: 75%;
 }
 
 #pexel-2 {
   width: 20px;
-  top: 30%;
-  left: 35%;
+  top: 20%;
+  left: 30%;
 }
 
 #pexel-3 {
   width: 25px;
   top: 40%;
-  left: 15%;
+  left: 10%;
 }
 
 #pexel-4 {
   width: 35px;
-  top: 70%;
+  top: 75%;
   left: 45%;
+}
+
+.on_desktop {
+  display: none;
+}
+@media screen and (min-width: 576px) {
+  .on_desktop {
+    display: block;
+  }
+}
+
+.on_mobile {
+  display: block;
+}
+@media screen and (min-width: 576px) {
+  .on_mobile {
+    display: none;
+  }
 }
 
 /***************************************** end of base styles ******************************************/
@@ -67,7 +85,7 @@ body {
   left: 30%;
   position: absolute;
   font-family: "Ubuntu";
-  font-size: 15em;
+  font-size: 18em;
   font-weight: 700;
   color: #181818;
   opacity: 0.34;
@@ -76,7 +94,7 @@ body {
 }
 @media screen and (min-width: 576px) {
   .catalogue .des-wrap {
-    top: -50%;
+    top: -15%;
     left: 25%;
   }
 }
@@ -85,7 +103,7 @@ body {
   left: 30%;
   position: absolute;
   font-family: "Ubuntu";
-  font-size: 15em;
+  font-size: 18em;
   font-weight: 700;
   color: #181818;
   opacity: 0.34;
@@ -114,7 +132,8 @@ body {
 .catalogue .ui-design .three-d-image img,
 .catalogue .three-d-design .ui-image img,
 .catalogue .three-d-design .three-d-image img {
-  width: 250px;
+  width: 100%;
+  height: auto;
 }
 .catalogue .ui-design p,
 .catalogue .three-d-design p {
@@ -173,7 +192,7 @@ body {
 @media screen and (min-width: 576px) {
   .catalogue .ui-design,
 .catalogue .three-d-design {
-    width: 40%;
+    width: 35%;
   }
 }
 @media screen and (min-width: 576px) {
@@ -181,7 +200,8 @@ body {
     flex-direction: row;
     justify-content: space-around;
     gap: 30px;
-    margin: 20vh auto;
+    margin: 5vh auto;
     padding: 0;
+    width: 100%;
   }
 }/*# sourceMappingURL=style.css.map */
