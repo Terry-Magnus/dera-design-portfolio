@@ -5,55 +5,65 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   padding: 0;
   margin: 0;
+  height: 100%;
+  overflow-x: hidden;
   background-color: #040404;
-  position: relative;
-  overflow: hidden;
 }
 
 .pexel {
   position: absolute;
   z-index: 3;
+  display: none;
+}
+@media screen and (min-width: 576px) {
+  .pexel {
+    display: block;
+  }
 }
 
 #pexel-1 {
   width: 20px;
-  top: 35%;
+  top: 20%;
   left: 75%;
 }
 
 #pexel-2 {
   width: 20px;
-  top: 40%;
-  left: 30%;
+  top: 30%;
+  left: 35%;
 }
 
 #pexel-3 {
   width: 25px;
-  top: 55%;
+  top: 40%;
   left: 15%;
 }
 
 #pexel-4 {
-  width: 50px;
-  top: 90%;
-  left: 35%;
+  width: 35px;
+  top: 70%;
+  left: 45%;
 }
 
 /***************************************** end of base styles ******************************************/
 .catalogue {
   /* Container for the links to each category*/
-  margin: 2vh 0 5vh 0;
+  position: relative;
+  padding: 50px 10px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
+  gap: 100px;
+  width: 80%;
 }
 .catalogue .des-wrap {
-  top: 10%;
+  top: 0;
   left: 30%;
   position: absolute;
   font-family: "Ubuntu";
@@ -64,8 +74,14 @@ body {
   text-shadow: -31px 4px 37px rgba(0, 0, 0, 0.25);
   text-align: center;
 }
+@media screen and (min-width: 576px) {
+  .catalogue .des-wrap {
+    top: -50%;
+    left: 25%;
+  }
+}
 .catalogue .ign-wrap {
-  top: 60%;
+  top: 50%;
   left: 30%;
   position: absolute;
   font-family: "Ubuntu";
@@ -75,17 +91,37 @@ body {
   opacity: 0.34;
   text-shadow: -31px 4px 37px rgba(0, 0, 0, 0.25);
   text-align: center;
+}
+@media screen and (min-width: 576px) {
+  .catalogue .ign-wrap {
+    left: 25%;
+  }
 }
 .catalogue .ui-design,
 .catalogue .three-d-design {
   z-index: 1;
+  text-align: center;
 }
-.catalogue .ui-design img,
-.catalogue .three-d-design img {
+.catalogue .ui-design .ui-image,
+.catalogue .ui-design .three-d-image,
+.catalogue .three-d-design .ui-image,
+.catalogue .three-d-design .three-d-image {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
-.catalogue .ui-design a,
-.catalogue .three-d-design a {
+.catalogue .ui-design .ui-image img,
+.catalogue .ui-design .three-d-image img,
+.catalogue .three-d-design .ui-image img,
+.catalogue .three-d-design .three-d-image img {
+  width: 250px;
+}
+.catalogue .ui-design p,
+.catalogue .three-d-design p {
+  text-align: center;
+}
+.catalogue .ui-design p a,
+.catalogue .three-d-design p a {
   text-decoration: none;
   cursor: pointer;
   color: #f5fdff;
@@ -135,9 +171,17 @@ body {
   text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #B9961B, 0 0 82px #B9961B, 0 0 92px #B9961B, 0 0 102px #B9961B, 0 0 151px #B9961B;
 }
 @media screen and (min-width: 576px) {
+  .catalogue .ui-design,
+.catalogue .three-d-design {
+    width: 40%;
+  }
+}
+@media screen and (min-width: 576px) {
   .catalogue {
     flex-direction: row;
     justify-content: space-around;
-    margin: 20vh 0;
+    gap: 30px;
+    margin: 20vh auto;
+    padding: 0;
   }
 }/*# sourceMappingURL=style.css.map */

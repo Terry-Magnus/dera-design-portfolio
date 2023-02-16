@@ -12,12 +12,14 @@ $textWhite: #f5fdff;
     box-sizing: border-box;
 }
 
+
+html,
 body {
     padding: 0;
     margin: 0;
+    height: 100%;
+    overflow-x: hidden;
     background-color: $blackBackground;
-    position: relative;
-    overflow: hidden;
     // background: url("../images/body-background.png") no-repeat center fixed;
     // -webkit-background-size: cover;
     // -moz-background-size: cover;
@@ -38,31 +40,36 @@ body {
 
 .pexel {
     position: absolute;
-    z-index: 3
+    z-index: 3;
+    display: none;
+
+    @media screen and (min-width: 576px) {
+        display: block;
+    }
 }
 
 #pexel-1 {
     width: 20px;
-    top: 35%;
+    top: 20%;
     left: 75%;
 }
 
 #pexel-2 {
     width: 20px;
-    top: 40%;
-    left: 30%;
+    top: 30%;
+    left: 35%;
 }
 
 #pexel-3 {
     width: 25px;
-    top: 55%;
+    top: 40%;
     left: 15%;
 }
 
 #pexel-4 {
-    width: 50px;
-    top: 90%;
-    left: 35%;
+    width: 35px;
+    top: 70%;
+    left: 45%;
 }
 
 /***************************************** end of base styles ******************************************/
@@ -104,37 +111,63 @@ body {
 
 .catalogue {
     /* Container for the links to each category*/
-    margin: 2vh 0 5vh 0;
+    position: relative;
+    padding: 50px 10px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 30px;
+    gap: 100px;
+    width: 80%;
 
     .des-wrap {
-        top: 10%;
+        top: 0;
         left: 30%;
-        @include textbackgroundStyles()
+        @include textbackgroundStyles();
+
+        @media screen and (min-width: 576px) {
+            top: -50%;
+            left: 25%;
+        }
     }
 
     .ign-wrap {
-        top: 60%;
+        top: 50%;
         left: 30%;
-        @include textbackgroundStyles()
+        @include textbackgroundStyles();
+
+        @media screen and (min-width: 576px) {
+            left: 25%;
+
+        }
     }
 
     .ui-design,
     .three-d-design {
         z-index: 1;
 
-        img {
+        text-align: center;
+
+        .ui-image,
+        .three-d-image {
             width: 100%;
+            display: flex;
+            justify-content: center;
+
+            img {
+                width: 250px;
+            }
         }
 
-        a {
-            text-decoration: none;
-            cursor: pointer;
-            color: $textWhite;
+        p {
+            text-align: center;
+
+            a {
+                text-decoration: none;
+                cursor: pointer;
+                color: $textWhite;
+            }
         }
 
         &:hover {
@@ -178,11 +211,17 @@ body {
             }
 
         }
+
+        @media screen and (min-width: 576px) {
+            width: 40%;
+        }
     }
 
     @media screen and (min-width: 576px) {
         flex-direction: row;
         justify-content: space-around;
-        margin: 20vh 0;
+        gap: 30px;
+        margin: 20vh auto;
+        padding: 0;
     }
 }
