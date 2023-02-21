@@ -19,7 +19,6 @@ body {
     padding: 0;
     margin: 0;
     height: 100%;
-    overflow-x: hidden;
     background-color: $blackBackground;
     // background: url("../images/body-background.png") no-repeat center fixed;
     // -webkit-background-size: cover;
@@ -101,6 +100,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     gap: 100px;
     width: 80%;
 
@@ -111,17 +111,17 @@ body {
 
         @media screen and (min-width: 576px) {
             top: -15%;
-            left: 25%;
+            left: 30%;
         }
     }
 
     .ign-wrap {
-        top: 50%;
+        top: 45%;
         left: 30%;
         @include textbackgroundStyles();
 
         @media screen and (min-width: 576px) {
-            left: 25%;
+            left: 30%;
         }
     }
 
@@ -199,6 +199,35 @@ body {
         }
     }
 
+    /*************************************** 3D-Catalogue Page***********************************/
+    .item {
+        width: 100%;
+        height: 500px;
+
+        img {
+            width: 100%;
+        }
+
+        .description {
+            width: 200px;
+            font-family: "Poppins";
+            color: $textWhite;
+        }
+
+        @media screen and (min-width: 576px) {
+            width: 45%;
+        }
+    }
+
+    #jankins {
+        background-image: url(../../images/jankins-alt.png);
+    }
+
+    #ralph {
+        background-image: url(../../images/ralph.png);
+    }
+
+    /**************** End of 3D Catalogue Page ***********************/
     @media screen and (min-width: 576px) {
         flex-direction: row;
         justify-content: space-around;
