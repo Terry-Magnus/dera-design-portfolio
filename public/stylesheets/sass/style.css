@@ -199,15 +199,21 @@ body {
 }
 .catalogue .item {
   width: 100%;
-  height: 500px;
+  height: 50vh;
 }
 .catalogue .item img {
   width: 100%;
 }
 .catalogue .item .description {
-  width: 200px;
   font-family: "Poppins";
   color: #f5fdff;
+  font-size: 2.5em;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+.catalogue .item .description span {
+  font-size: 12px;
+  line-height: 18px;
 }
 @media screen and (min-width: 576px) {
   .catalogue .item {
@@ -215,10 +221,12 @@ body {
   }
 }
 .catalogue #jankins {
-  background-image: url(../../images/jankins-alt.png);
+  background: url(../../images/jankins-alt.png) center center no-repeat;
+  background-size: cover;
 }
 .catalogue #ralph {
-  background-image: url(../../images/ralph.png);
+  background: url(../../images/ralph.png) center right no-repeat;
+  background-size: cover;
 }
 @media screen and (min-width: 576px) {
   .catalogue {

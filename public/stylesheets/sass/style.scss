@@ -202,16 +202,23 @@ body {
     /*************************************** 3D-Catalogue Page***********************************/
     .item {
         width: 100%;
-        height: 500px;
+        height: 50vh;
 
         img {
             width: 100%;
         }
 
         .description {
-            width: 200px;
             font-family: "Poppins";
             color: $textWhite;
+            font-size: 2.5em;
+            font-weight: 400;
+            letter-spacing: -0.005em;
+
+            span {
+                font-size: 12px;
+                line-height: 18px;
+            }
         }
 
         @media screen and (min-width: 576px) {
@@ -220,11 +227,13 @@ body {
     }
 
     #jankins {
-        background-image: url(../../images/jankins-alt.png);
+        background: url(../../images/jankins-alt.png) center center no-repeat;
+        background-size: cover;
     }
 
     #ralph {
-        background-image: url(../../images/ralph.png);
+        background: url(../../images/ralph.png) center right no-repeat;
+        background-size: cover;
     }
 
     /**************** End of 3D Catalogue Page ***********************/
