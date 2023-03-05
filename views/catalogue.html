@@ -28,13 +28,20 @@
     ></script>
   </head>
   <body>
-    <div class="nav-container">
-      <div class="image-wrap">
-        <img src="../public/images/logo.png" alt="" />
+    <nav class="nav-container">
+      <div class="nav-logo">
+        <img src="../public/images/logo.png" alt="logo" />
       </div>
-      <header></header>
+      <button class="navbar-toggler"></button>
+      <div class="navbar-collapse">
+        <ul class="nav-links">
+            <li class="nav-item"><a href="index.html">Home</a></li>
+            <li class="nav-item"><a href="catalogue.html">Catalogue</a></li>
+            <li class="nav-item"><a href="#">Connect</a></li>
+        </ul>
+      </div>
       <!-- end of header element -->
-    </div>
+    </nav>
     <!-- end of nav-container div -->
     <img
       class="pexel"
@@ -59,32 +66,33 @@
       id="pexel-4"
       src="../public/images/pexel.png"
       alt="pexels"
-    />
-    <section class="catalogue">
-      <div class="des-wrap">DES</div>
+    /><div class="des-wrap">DES</div>
       <div class="ign-wrap">IGN</div>
+    <main class="catalogue">
+      
       <div class="ui-design">
         <div class="ui-image">
-          <img src="../public/images/cassette.png" alt="3ddesign" />
+          <a href="index.html"
+            ><img src="../public/images/cassette.png" alt="3ddesign"
+          /></a>
         </div>
         <p>
-          <a href="index.html"
-            ><span class="on_mobile">Take a trip through my UI catalogue.</span
-            ><span class="on_desktop">User Interface</span></a
-          >
+          <span class="on_mobile">Take a trip through my UI catalogue.</span>
+          <span class="on_desktop">User Interface</span>
         </p>
       </div>
       <div class="three-d-design">
         <div class="three-d-image">
-          <img src="../public/images/jankins.png" alt="3ddesign" />
+          <a href="3d-catalogue.html"
+            ><img src="../public/images/jankins.png" alt="3ddesign"
+          /></a>
         </div>
         <p>
-          <a href="3d-catalogue.html"
-            ><span class="on_mobile">Take a trip through my 3D catalogue.</span
-            ><span class="on_desktop">3D Modeling</span></a
-          >
+          <span class="on_mobile">Take a trip through my 3D catalogue.</span>
+          <span class="on_desktop">3D Modeling</span>
         </p>
       </div>
+      </main>
     </section>
   </body>
 </html>

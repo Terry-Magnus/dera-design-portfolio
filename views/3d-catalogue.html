@@ -36,37 +36,62 @@
       <!-- end of header element -->
     </div>
     <!-- end of nav-container div -->
-    <section class="catalogue">
-      <div class="item" id="jankins">
-        <div class="description">
-          OLD <br />
-          MAN <br />
-          JANKINS<br />
-          <span>. gloom . depression . age</span>
+
+    <div class="slide-container">
+      <button id="slide-up"></button>
+      <button id="slide-down"></button>
+      <div class="slide">
+        <div class="slide-card" id="jankins">
+          <!--Each design is in a card-->
+          <div class="description">
+            <h1>
+              OLD <br />
+              MAN <br />
+              JANKINS<br />
+            </h1>
+            <span>. gloom . depression . age</span>
+          </div>
+        </div>
+        <div class="slide-card" id="ralph">
+          <div class="description">
+            <h1>
+              RALPH <br />
+              THE <br />
+              ROBOT<br />
+            </h1>
+
+            <span>. minimal . humanoid . expression</span>
+          </div>
+        </div>
+        <div class="slide-card" id="africana">
+          <div class="description">
+            <h1>
+              ART <br />
+              AFRICANA<br />
+            </h1>
+            <span>. historical . traditional . sculpt</span>
+          </div>
+        </div>
+        <div class="slide-card" id="nok">
+          <div class="description">
+            <h1>
+              N.O.K <br />
+              AFRICA<br />
+            </h1>
+            <span>. tribal . cultural . historical</span>
+          </div>
         </div>
       </div>
-      <div class="item" id="ralph">
-        <div class="description">
-          RALPH <br />
-          THE <br />
-          ROBOT<br />
-          <span>. minimal . humanoid . expression</span>
-        </div>
-      </div>
-      <div class="item" id="africana">
-        <div class="description">
-          ART <br />
-          AFRICANA<br />
-          <span>. historical . traditional . sculpt</span>
-        </div>
-      </div>
-      <div class="item" id="nok">
-        <div class="description">
-          N.O.K <br />
-          AFRICA<br />
-          <span>. tribal . cultural . historical</span>
-        </div>
-      </div>
-    </section>
+      <!--End of slide container-->
+    </div>
+
+    <script>
+      const sliderContainer = document.querySelector(".slide-container");
+      const slideUp = document.querySelector("#slide-up");
+      const slideDown = document.querySelector("#slide-down");
+      const ralphImg = document.querySelector("#ralph img");
+      const scrollUp = document.querySelector("#slide-up");
+      const { innerHeight, scrollY } = window;
+    </script>
   </body>
 </html>

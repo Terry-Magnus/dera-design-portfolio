@@ -1,41 +1,64 @@
 ////////////colors
-$blackBackground: #040404;
+$blackBackground: linear-gradient(33.69deg, #000000 20%, #131517 81.92%);
 $textBlack: #181818;
 $gold: #b9961b;
 $textWhite: #f5fdff;
-$bp-desktop: 576px;
+$bp-small: 600px;
 
-
-/************************************************* base styles ***************************************/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
 html,
 body {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    background-color: $blackBackground;
-    // background: url("../images/body-background.png") no-repeat center fixed;
-    // -webkit-background-size: cover;
-    // -moz-background-size: cover;
-    // -o-background-size: cover;
-    // background-size: cover;
+    height: 100vh;
+    overflow-x: hidden;
+    background: $blackBackground;
+}
+
+/************************************************* base styles ***************************************/
+
+/***************Reusable styles **********************/
+.nav-container {
+    height: 10vh;
 }
 
 @mixin textbackgroundStyles {
-    position: absolute;
+    position: fixed;
     font-family: "Ubuntu";
-    font-size: 18em;
+    font-size: 15em;
     font-weight: 700;
     color: $textBlack;
     opacity: 0.34;
     text-shadow: -31px 4px 37px rgba(0, 0, 0, 0.25);
     text-align: center;
+
+    @media screen and (min-width: $bp-small) {
+        font-size: 18em;
+    }
+}
+
+
+@mixin cardTextStyles {
+    font-family: "Poppins";
+    position: absolute;
+    color: $textWhite;
+
+    h1 {
+        font-size: 1.5em;
+        font-weight: 400;
+
+        @media screen and (min-width: $bp-small) {
+            font-size: 2.5em;
+        }
+    }
+
+    span {
+        font-size: 12px;
+        opacity: 0.72;
+    }
 }
 
 .pexel {
@@ -43,20 +66,20 @@ body {
     z-index: 3;
     display: none;
 
-    @media screen and (min-width: 576px) {
+    @media screen and (min-width: $bp-small) {
         display: block;
     }
 }
 
 #pexel-1 {
     width: 20px;
-    top: 15%;
+    top: 20%;
     left: 75%;
 }
 
 #pexel-2 {
     width: 20px;
-    top: 20%;
+    top: 25%;
     left: 30%;
 }
 
@@ -75,7 +98,7 @@ body {
 .on_desktop {
     display: none;
 
-    @media screen and (min-width: $bp-desktop) {
+    @media screen and (min-width: $bp-small) {
         display: block;
     }
 }
@@ -83,14 +106,36 @@ body {
 .on_mobile {
     display: block;
 
-    @media screen and (min-width: $bp-desktop) {
+    @media screen and (min-width: $bp-small) {
         display: none;
     }
 }
 
-/***************************************** end of base styles ******************************************/
+.des-wrap {
+    top: 20%;
+    left: 25%;
+    @include textbackgroundStyles();
 
+    @media screen and (min-width: $bp-small) {
+        top: 10%;
+        left: 25%;
+    }
+}
 
+.ign-wrap {
+    top: 60%;
+    left: 25%;
+    @include textbackgroundStyles();
+
+    @media screen and (min-width: $bp-small) {
+        top: 50%;
+        left: 25%;
+    }
+}
+
+/***************************************** end of Reusable styles ******************************************/
+
+/************************* Main catalogue page styles ***************************************/
 .catalogue {
     /* Container for the links to each category*/
     position: relative;
@@ -100,30 +145,12 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     gap: 100px;
-    width: 80%;
+    width: 100%;
+    height: 90vh;
+    background: rgba(0, 0, 0, 0.25);
 
-    .des-wrap {
-        top: 0;
-        left: 30%;
-        @include textbackgroundStyles();
 
-        @media screen and (min-width: 576px) {
-            top: -15%;
-            left: 30%;
-        }
-    }
-
-    .ign-wrap {
-        top: 45%;
-        left: 30%;
-        @include textbackgroundStyles();
-
-        @media screen and (min-width: 576px) {
-            left: 30%;
-        }
-    }
 
     .ui-design,
     .three-d-design {
@@ -137,112 +164,190 @@ body {
             justify-content: center;
 
             img {
-                width: 100%;
+                width: 50%;
                 height: auto;
+
+                // &:nth-child(1) {
+                //     @media screen and (max-width: $bp-small) {
+                //         &:focus {
+                //             transform: translate(100vw);
+                //             opacity: 0;
+                //             transition: all 1s ease;
+                //         }
+                //     }
+                // }
+
+                @media screen and (min-width: $bp-small) {
+                    width: 100%;
+
+                    &:hover {
+                        /* increase image size on hover*/
+                        transform: scale(1.2);
+                        transition: transform 1s ease;
+                    }
+
+                }
             }
+
         }
+
 
         p {
             text-align: center;
-
-            a {
-                text-decoration: none;
-                cursor: pointer;
-                color: $textWhite;
-            }
+            color: $textWhite;
         }
 
-        &:hover {
-
-            /* fade out the element on hover*/
-            @keyframes fade {
-
-                0% {
-                    opacity: 1
-                }
-
-                50% {
-                    opacity: 0.5;
-                }
-
-                75% {
-                    opacity: 0.25;
-                }
-
-                100% {
-                    opacity: 0;
-                }
-            }
-
-            img {
-                opacity: 0;
-                animation: fade .5s ease-in-out;
-            }
-
-            a {
-                /* Neon effect on hover */
-                color: $textWhite;
-                text-shadow: 0 0 7px #fff,
-                    0 0 10px #fff,
-                    0 0 21px #fff,
-                    0 0 42px #B9961B,
-                    0 0 82px #B9961B,
-                    0 0 92px #B9961B,
-                    0 0 102px #B9961B,
-                    0 0 151px #B9961B;
-            }
-
-        }
-
-        @media screen and (min-width: 576px) {
+        @media screen and (min-width: $bp-small) {
             width: 35%;
         }
     }
 
-    /*************************************** 3D-Catalogue Page***********************************/
-    .item {
-        width: 100%;
-        height: 50vh;
-
-        img {
-            width: 100%;
-        }
-
-        .description {
-            font-family: "Poppins";
-            color: $textWhite;
-            font-size: 2.5em;
-            font-weight: 400;
-            letter-spacing: -0.005em;
-
-            span {
-                font-size: 12px;
-                line-height: 18px;
-            }
-        }
-
-        @media screen and (min-width: 576px) {
-            width: 45%;
-        }
-    }
-
-    #jankins {
-        background: url(../../images/jankins-alt.png) center center no-repeat;
-        background-size: cover;
-    }
-
-    #ralph {
-        background: url(../../images/ralph.png) center right no-repeat;
-        background-size: cover;
-    }
-
-    /**************** End of 3D Catalogue Page ***********************/
-    @media screen and (min-width: 576px) {
+    @media screen and (min-width: $bp-small) {
         flex-direction: row;
         justify-content: space-around;
         gap: 30px;
-        margin: 5vh auto;
-        padding: 0;
-        width: 100%;
     }
+}
+
+/********************* end of main catalogue page styles ***************/
+/******* 3d Catalogue Page Styles *******/
+.slide-container {
+    height: 90%;
+    width: 100%;
+    position: relative;
+
+
+    /* hide the overflow from the items */
+    #slide-up {
+        background: url("../../images/arrow-up.png") no-repeat;
+        background-size: 30%;
+        background-position: center center;
+        padding: 50px 10px 15px 100px;
+        border: 1px solid $textWhite;
+        border-radius: 50%;
+        width: 100px;
+        height: 120px;
+        position: fixed;
+        bottom: 30px;
+        right: 10px;
+        z-index: 2;
+
+        img {
+            width: 25px;
+        }
+    }
+
+    #slide-down {
+        background: url("../../images/arrow-down.png") no-repeat;
+        background-size: 100%;
+        background-position: center -50%;
+        border: 0;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        bottom: 0;
+        left: 50vw;
+        z-index: 2;
+    }
+
+    .slide {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 100%);
+        justify-content: center;
+        align-items: center;
+        row-gap: 20px;
+
+        #jankins {
+            background: url("../../images/jankins-alt.png") no-repeat;
+            background-size: cover;
+            background-position: center center;
+            box-shadow: -36px 54px 83px rgba(0, 0, 0, 0.65);
+            border-radius: 20px;
+            position: relative;
+            height: inherit;
+
+            .description {
+                @include cardTextStyles();
+
+                top: 45%;
+                left: 20%;
+
+            }
+        }
+
+        #ralph {
+            background: url("../../images/ralph-alt.png") no-repeat;
+            background-size: 70%;
+            background-position: center 100%;
+            box-shadow: -36px 54px 83px rgba(0, 0, 0, 0.65);
+            border-radius: 20px;
+            position: relative;
+            height: inherit;
+
+
+            .description {
+                @include cardTextStyles();
+                top: 50%;
+                left: 20%;
+
+                @media screen and (min-width: $bp-small) {
+                    left: 10%;
+                }
+            }
+
+            @media screen and (min-width: $bp-small) {
+                background-image: url("../../images/ralph.png");
+                background-size: cover;
+
+            }
+        }
+
+        #africana {
+            background: url("../../images/africana.png") no-repeat;
+            background-size: 100%;
+            background-position: center center;
+            box-shadow: -36px 54px 83px rgba(0, 0, 0, 0.65);
+            border-radius: 20px;
+            position: relative;
+            height: inherit;
+
+
+            .description {
+                @include cardTextStyles();
+                top: 60%;
+                left: 10%;
+            }
+        }
+
+        #nok {
+            background: url("../../images/nok.png") no-repeat;
+            background-size: 100%;
+            background-position: center center;
+            box-shadow: -36px 54px 83px rgba(0, 0, 0, 0.65);
+            border-radius: 20px;
+            position: relative;
+            height: inherit;
+
+
+
+            .description {
+                @include cardTextStyles();
+                top: 60%;
+                left: 0;
+            }
+        }
+
+        @media screen and (min-width: $bp-small) {
+            grid-template-rows: repeat(2, 100%);
+            grid-template-columns: repeat(2, 45%);
+            column-gap: 5%;
+            row-gap: 100px;
+        }
+    }
+
 }

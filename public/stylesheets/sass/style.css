@@ -1,4 +1,3 @@
-/************************************************* base styles ***************************************/
 * {
   margin: 0;
   padding: 0;
@@ -7,10 +6,15 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  background-color: #040404;
+  height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(33.69deg, #000000 20%, #131517 81.92%);
+}
+
+/************************************************* base styles ***************************************/
+/***************Reusable styles **********************/
+.nav-container {
+  height: 10vh;
 }
 
 .pexel {
@@ -18,7 +22,7 @@ body {
   z-index: 3;
   display: none;
 }
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 600px) {
   .pexel {
     display: block;
   }
@@ -26,13 +30,13 @@ body {
 
 #pexel-1 {
   width: 20px;
-  top: 15%;
+  top: 20%;
   left: 75%;
 }
 
 #pexel-2 {
   width: 20px;
-  top: 20%;
+  top: 25%;
   left: 30%;
 }
 
@@ -51,7 +55,7 @@ body {
 .on_desktop {
   display: none;
 }
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 600px) {
   .on_desktop {
     display: block;
   }
@@ -60,13 +64,62 @@ body {
 .on_mobile {
   display: block;
 }
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 600px) {
   .on_mobile {
     display: none;
   }
 }
 
-/***************************************** end of base styles ******************************************/
+.des-wrap {
+  top: 20%;
+  left: 25%;
+  position: fixed;
+  font-family: "Ubuntu";
+  font-size: 15em;
+  font-weight: 700;
+  color: #181818;
+  opacity: 0.34;
+  text-shadow: -31px 4px 37px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+@media screen and (min-width: 600px) {
+  .des-wrap {
+    font-size: 18em;
+  }
+}
+@media screen and (min-width: 600px) {
+  .des-wrap {
+    top: 10%;
+    left: 25%;
+  }
+}
+
+.ign-wrap {
+  top: 60%;
+  left: 25%;
+  position: fixed;
+  font-family: "Ubuntu";
+  font-size: 15em;
+  font-weight: 700;
+  color: #181818;
+  opacity: 0.34;
+  text-shadow: -31px 4px 37px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+@media screen and (min-width: 600px) {
+  .ign-wrap {
+    font-size: 18em;
+  }
+}
+@media screen and (min-width: 600px) {
+  .ign-wrap {
+    top: 50%;
+    left: 25%;
+  }
+}
+
+/***************************************** end of Reusable styles ******************************************/
+/************************* Main catalogue page styles ***************************************/
 .catalogue {
   /* Container for the links to each category*/
   position: relative;
@@ -76,46 +129,10 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   gap: 100px;
-  width: 80%;
-  /*************************************** 3D-Catalogue Page***********************************/
-  /**************** End of 3D Catalogue Page ***********************/
-}
-.catalogue .des-wrap {
-  top: 0;
-  left: 30%;
-  position: absolute;
-  font-family: "Ubuntu";
-  font-size: 18em;
-  font-weight: 700;
-  color: #181818;
-  opacity: 0.34;
-  text-shadow: -31px 4px 37px rgba(0, 0, 0, 0.25);
-  text-align: center;
-}
-@media screen and (min-width: 576px) {
-  .catalogue .des-wrap {
-    top: -15%;
-    left: 30%;
-  }
-}
-.catalogue .ign-wrap {
-  top: 45%;
-  left: 30%;
-  position: absolute;
-  font-family: "Ubuntu";
-  font-size: 18em;
-  font-weight: 700;
-  color: #181818;
-  opacity: 0.34;
-  text-shadow: -31px 4px 37px rgba(0, 0, 0, 0.25);
-  text-align: center;
-}
-@media screen and (min-width: 576px) {
-  .catalogue .ign-wrap {
-    left: 30%;
-  }
+  width: 100%;
+  height: 90vh;
+  background: rgba(0, 0, 0, 0.25);
 }
 .catalogue .ui-design,
 .catalogue .three-d-design {
@@ -134,107 +151,226 @@ body {
 .catalogue .ui-design .three-d-image img,
 .catalogue .three-d-design .ui-image img,
 .catalogue .three-d-design .three-d-image img {
-  width: 100%;
+  width: 50%;
   height: auto;
+}
+@media screen and (min-width: 600px) {
+  .catalogue .ui-design .ui-image img,
+  .catalogue .ui-design .three-d-image img,
+  .catalogue .three-d-design .ui-image img,
+  .catalogue .three-d-design .three-d-image img {
+    width: 100%;
+  }
+  .catalogue .ui-design .ui-image img:hover,
+  .catalogue .ui-design .three-d-image img:hover,
+  .catalogue .three-d-design .ui-image img:hover,
+  .catalogue .three-d-design .three-d-image img:hover {
+    /* increase image size on hover*/
+    transform: scale(1.2);
+    transition: transform 1s ease;
+  }
 }
 .catalogue .ui-design p,
 .catalogue .three-d-design p {
   text-align: center;
-}
-.catalogue .ui-design p a,
-.catalogue .three-d-design p a {
-  text-decoration: none;
-  cursor: pointer;
   color: #f5fdff;
 }
-.catalogue .ui-design:hover,
-.catalogue .three-d-design:hover {
-  /* fade out the element on hover*/
-}
-@-webkit-keyframes fade {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  75% {
-    opacity: 0.25;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes fade {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  75% {
-    opacity: 0.25;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-.catalogue .ui-design:hover img,
-.catalogue .three-d-design:hover img {
-  opacity: 0;
-  -webkit-animation: fade 0.5s ease-in-out;
-          animation: fade 0.5s ease-in-out;
-}
-.catalogue .ui-design:hover a,
-.catalogue .three-d-design:hover a {
-  /* Neon effect on hover */
-  color: #f5fdff;
-  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #B9961B, 0 0 82px #B9961B, 0 0 92px #B9961B, 0 0 102px #B9961B, 0 0 151px #B9961B;
-}
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 600px) {
   .catalogue .ui-design,
-.catalogue .three-d-design {
+  .catalogue .three-d-design {
     width: 35%;
   }
 }
-.catalogue .item {
-  width: 100%;
-  height: 50vh;
-}
-.catalogue .item img {
-  width: 100%;
-}
-.catalogue .item .description {
-  font-family: "Poppins";
-  color: #f5fdff;
-  font-size: 2.5em;
-  font-weight: 400;
-  letter-spacing: -0.005em;
-}
-.catalogue .item .description span {
-  font-size: 12px;
-  line-height: 18px;
-}
-@media screen and (min-width: 576px) {
-  .catalogue .item {
-    width: 45%;
-  }
-}
-.catalogue #jankins {
-  background: url(../../images/jankins-alt.png) center center no-repeat;
-  background-size: cover;
-}
-.catalogue #ralph {
-  background: url(../../images/ralph.png) center right no-repeat;
-  background-size: cover;
-}
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 600px) {
   .catalogue {
     flex-direction: row;
     justify-content: space-around;
     gap: 30px;
-    margin: 5vh auto;
-    padding: 0;
-    width: 100%;
+  }
+}
+
+/********************* end of main catalogue page styles ***************/
+/******* 3d Catalogue Page Styles *******/
+.slide-container {
+  height: 90%;
+  width: 100%;
+  position: relative;
+  /* hide the overflow from the items */
+}
+.slide-container #slide-up {
+  background: url("../../images/arrow-up.png") no-repeat;
+  background-size: 30%;
+  background-position: center center;
+  padding: 50px 10px 15px 100px;
+  border: 1px solid #f5fdff;
+  border-radius: 50%;
+  width: 100px;
+  height: 120px;
+  position: fixed;
+  bottom: 30px;
+  right: 10px;
+  z-index: 2;
+}
+.slide-container #slide-up img {
+  width: 25px;
+}
+.slide-container #slide-down {
+  background: url("../../images/arrow-down.png") no-repeat;
+  background-size: 100%;
+  background-position: center -50%;
+  border: 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  left: 50vw;
+  z-index: 2;
+}
+.slide-container .slide {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 100%);
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
+}
+.slide-container .slide #jankins {
+  background: url("../../images/jankins-alt.png") no-repeat;
+  background-size: cover;
+  background-position: center center;
+  box-shadow: -36px 54px 83px rgba(0, 0, 0, 0.65);
+  border-radius: 20px;
+  position: relative;
+  height: inherit;
+}
+.slide-container .slide #jankins .description {
+  font-family: "Poppins";
+  position: absolute;
+  color: #f5fdff;
+  top: 45%;
+  left: 20%;
+}
+.slide-container .slide #jankins .description h1 {
+  font-size: 1.5em;
+  font-weight: 400;
+}
+@media screen and (min-width: 600px) {
+  .slide-container .slide #jankins .description h1 {
+    font-size: 2.5em;
+  }
+}
+.slide-container .slide #jankins .description span {
+  font-size: 12px;
+  opacity: 0.72;
+}
+.slide-container .slide #ralph {
+  background: url("../../images/ralph-alt.png") no-repeat;
+  background-size: 70%;
+  background-position: center 100%;
+  box-shadow: -36px 54px 83px rgba(0, 0, 0, 0.65);
+  border-radius: 20px;
+  position: relative;
+  height: inherit;
+}
+.slide-container .slide #ralph .description {
+  font-family: "Poppins";
+  position: absolute;
+  color: #f5fdff;
+  top: 50%;
+  left: 20%;
+}
+.slide-container .slide #ralph .description h1 {
+  font-size: 1.5em;
+  font-weight: 400;
+}
+@media screen and (min-width: 600px) {
+  .slide-container .slide #ralph .description h1 {
+    font-size: 2.5em;
+  }
+}
+.slide-container .slide #ralph .description span {
+  font-size: 12px;
+  opacity: 0.72;
+}
+@media screen and (min-width: 600px) {
+  .slide-container .slide #ralph .description {
+    left: 10%;
+  }
+}
+@media screen and (min-width: 600px) {
+  .slide-container .slide #ralph {
+    background-image: url("../../images/ralph.png");
+    background-size: cover;
+  }
+}
+.slide-container .slide #africana {
+  background: url("../../images/africana.png") no-repeat;
+  background-size: 100%;
+  background-position: center center;
+  box-shadow: -36px 54px 83px rgba(0, 0, 0, 0.65);
+  border-radius: 20px;
+  position: relative;
+  height: inherit;
+}
+.slide-container .slide #africana .description {
+  font-family: "Poppins";
+  position: absolute;
+  color: #f5fdff;
+  top: 60%;
+  left: 10%;
+}
+.slide-container .slide #africana .description h1 {
+  font-size: 1.5em;
+  font-weight: 400;
+}
+@media screen and (min-width: 600px) {
+  .slide-container .slide #africana .description h1 {
+    font-size: 2.5em;
+  }
+}
+.slide-container .slide #africana .description span {
+  font-size: 12px;
+  opacity: 0.72;
+}
+.slide-container .slide #nok {
+  background: url("../../images/nok.png") no-repeat;
+  background-size: 100%;
+  background-position: center center;
+  box-shadow: -36px 54px 83px rgba(0, 0, 0, 0.65);
+  border-radius: 20px;
+  position: relative;
+  height: inherit;
+}
+.slide-container .slide #nok .description {
+  font-family: "Poppins";
+  position: absolute;
+  color: #f5fdff;
+  top: 60%;
+  left: 0;
+}
+.slide-container .slide #nok .description h1 {
+  font-size: 1.5em;
+  font-weight: 400;
+}
+@media screen and (min-width: 600px) {
+  .slide-container .slide #nok .description h1 {
+    font-size: 2.5em;
+  }
+}
+.slide-container .slide #nok .description span {
+  font-size: 12px;
+  opacity: 0.72;
+}
+@media screen and (min-width: 600px) {
+  .slide-container .slide {
+    grid-template-rows: repeat(2, 100%);
+    grid-template-columns: repeat(2, 45%);
+    -moz-column-gap: 5%;
+         column-gap: 5%;
+    row-gap: 100px;
   }
 }/*# sourceMappingURL=style.css.map */
