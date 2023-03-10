@@ -13,8 +13,71 @@ body {
 
 /************************************************* base styles ***************************************/
 /***************Reusable styles **********************/
-.nav-container {
-  height: 10vh;
+.navbar {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  background-color: none;
+  padding: 10px;
+  width: 100%;
+}
+.navbar .nav-links {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  width: 20em;
+}
+@media (max-width: 600px) {
+  .navbar .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background-color: #333;
+    transition: all 1.5s ease;
+    display: none;
+    text-align: center;
+    z-index: 3;
+  }
+}
+.navbar .nav-links li {
+  list-style: none;
+  cursor: pointer;
+}
+.navbar .nav-links li a {
+  text-decoration: none;
+  color: #f5fdff;
+  text-transform: uppercase;
+}
+@media (max-width: 600px) {
+  .navbar .nav-links li {
+    padding: 1.5em 0;
+  }
+}
+.navbar .menu-toggle {
+  display: none;
+  color: #f5fdff;
+  font-size: 1.2em;
+  margin-right: 10px;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .navbar .menu-toggle {
+    display: block;
+  }
+}
+.navbar .close-toggle {
+  display: none;
+  color: #f5fdff;
+  font-size: 2em;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .navbar .close-toggle {
+    display: none;
+  }
 }
 
 .pexel {
@@ -22,7 +85,7 @@ body {
   z-index: 3;
   display: none;
 }
-@media screen and (min-width: 600px) {
+@media (min-width: 600px) {
   .pexel {
     display: block;
   }
@@ -55,7 +118,7 @@ body {
 .on_desktop {
   display: none;
 }
-@media screen and (min-width: 600px) {
+@media (min-width: 600px) {
   .on_desktop {
     display: block;
   }
@@ -64,7 +127,7 @@ body {
 .on_mobile {
   display: block;
 }
-@media screen and (min-width: 600px) {
+@media (min-width: 600px) {
   .on_mobile {
     display: none;
   }
@@ -82,12 +145,12 @@ body {
   text-shadow: -31px 4px 37px rgba(0, 0, 0, 0.25);
   text-align: center;
 }
-@media screen and (min-width: 600px) {
+@media (min-width: 600px) {
   .des-wrap {
     font-size: 18em;
   }
 }
-@media screen and (min-width: 600px) {
+@media (min-width: 600px) {
   .des-wrap {
     top: 10%;
     left: 25%;
@@ -106,12 +169,12 @@ body {
   text-shadow: -31px 4px 37px rgba(0, 0, 0, 0.25);
   text-align: center;
 }
-@media screen and (min-width: 600px) {
+@media (min-width: 600px) {
   .ign-wrap {
     font-size: 18em;
   }
 }
-@media screen and (min-width: 600px) {
+@media (min-width: 600px) {
   .ign-wrap {
     top: 50%;
     left: 25%;
@@ -154,7 +217,7 @@ body {
   width: 50%;
   height: auto;
 }
-@media screen and (min-width: 600px) {
+@media (min-width: 600px) {
   .catalogue .ui-design .ui-image img,
   .catalogue .ui-design .three-d-image img,
   .catalogue .three-d-design .ui-image img,
@@ -175,13 +238,13 @@ body {
   text-align: center;
   color: #f5fdff;
 }
-@media screen and (min-width: 600px) {
+@media (min-width: 600px) {
   .catalogue .ui-design,
   .catalogue .three-d-design {
     width: 35%;
   }
 }
-@media screen and (min-width: 600px) {
+@media (min-width: 600px) {
   .catalogue {
     flex-direction: row;
     justify-content: space-around;
@@ -192,185 +255,213 @@ body {
 /********************* end of main catalogue page styles ***************/
 /******* 3d Catalogue Page Styles *******/
 .slide-container {
-  height: 90%;
+  height: 100%;
   width: 100%;
   position: relative;
-  /* hide the overflow from the items */
 }
 .slide-container #slide-up {
-  background: url("../../images/arrow-up.png") no-repeat;
-  background-size: 30%;
-  background-position: center center;
-  padding: 50px 10px 15px 100px;
-  border: 1px solid #f5fdff;
-  border-radius: 50%;
-  width: 100px;
-  height: 120px;
-  position: fixed;
-  bottom: 30px;
-  right: 10px;
-  z-index: 2;
-}
-.slide-container #slide-up img {
-  width: 25px;
-}
-.slide-container #slide-down {
-  background: url("../../images/arrow-down.png") no-repeat;
-  background-size: 100%;
-  background-position: center -50%;
+  display: none;
   border: 0;
-  width: 50px;
+  background: none;
+  width: 3em;
   height: 50px;
   position: absolute;
-  bottom: 0;
+  top: 25px;
   left: 50vw;
   z-index: 2;
 }
-.slide-container .slide {
+.slide-container #slide-up img {
+  width: 100%;
+  transform: rotate(180deg);
+}
+.slide-container #slide-down {
+  display: none;
+  border: 0;
+  background: none;
+  width: 3em;
+  height: 50px;
+  position: absolute;
+  bottom: 10px;
+  left: 50vw;
+  z-index: 2;
+}
+.slide-container #slide-down img {
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .slide-container #slide-down {
+    display: block;
+  }
+}
+.slide-container .slider .slide-group {
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 100%);
-  justify-content: center;
-  align-items: center;
-  row-gap: 20px;
 }
-.slide-container .slide #jankins {
+.slide-container .slider .slide-group .slide-card {
+  height: 500px;
+  width: 100%;
+  padding: 100px 50px;
+}
+@media (min-width: 600px) {
+  .slide-container .slider .slide-group .slide-card {
+    width: 50%;
+    padding: 200px 25px;
+  }
+}
+@media (min-width: 600px) {
+  .slide-container .slider .slide-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+.slide-container .slider #jankins {
   background: url("../../images/jankins-alt.png") no-repeat;
-  background-size: cover;
-  background-position: center center;
+  background-size: 25em;
+  background-position: 60% center;
   box-shadow: -36px 54px 83px rgba(0, 0, 0, 0.65);
   border-radius: 20px;
   position: relative;
-  height: inherit;
 }
-.slide-container .slide #jankins .description {
+.slide-container .slider #jankins .description {
   font-family: "Poppins";
   position: absolute;
   color: #f5fdff;
   top: 45%;
-  left: 20%;
+  left: 25%;
 }
-.slide-container .slide #jankins .description h1 {
+.slide-container .slider #jankins .description h1 {
   font-size: 1.5em;
   font-weight: 400;
 }
-@media screen and (min-width: 600px) {
-  .slide-container .slide #jankins .description h1 {
-    font-size: 2.5em;
+@media (min-width: 600px) {
+  .slide-container .slider #jankins .description h1 {
+    font-size: 2em;
   }
 }
-.slide-container .slide #jankins .description span {
+.slide-container .slider #jankins .description span {
   font-size: 12px;
   opacity: 0.72;
 }
-.slide-container .slide #ralph {
+@media (min-width: 600px) {
+  .slide-container .slider #jankins {
+    background-size: 80%;
+  }
+}
+.slide-container .slider #ralph {
   background: url("../../images/ralph-alt.png") no-repeat;
-  background-size: 70%;
-  background-position: center 100%;
+  background-size: 15em;
+  background-position: 80% center;
   box-shadow: -36px 54px 83px rgba(0, 0, 0, 0.65);
   border-radius: 20px;
   position: relative;
-  height: inherit;
 }
-.slide-container .slide #ralph .description {
+.slide-container .slider #ralph .description {
   font-family: "Poppins";
   position: absolute;
   color: #f5fdff;
   top: 50%;
-  left: 20%;
+  left: 15%;
 }
-.slide-container .slide #ralph .description h1 {
+.slide-container .slider #ralph .description h1 {
   font-size: 1.5em;
   font-weight: 400;
 }
-@media screen and (min-width: 600px) {
-  .slide-container .slide #ralph .description h1 {
-    font-size: 2.5em;
+@media (min-width: 600px) {
+  .slide-container .slider #ralph .description h1 {
+    font-size: 2em;
   }
 }
-.slide-container .slide #ralph .description span {
+.slide-container .slider #ralph .description span {
   font-size: 12px;
   opacity: 0.72;
 }
-@media screen and (min-width: 600px) {
-  .slide-container .slide #ralph .description {
+@media (min-width: 600px) {
+  .slide-container .slider #ralph .description {
     left: 10%;
   }
 }
-@media screen and (min-width: 600px) {
-  .slide-container .slide #ralph {
+@media (min-width: 600px) {
+  .slide-container .slider #ralph {
     background-image: url("../../images/ralph.png");
-    background-size: cover;
+    background-size: 80%;
   }
 }
-.slide-container .slide #africana {
+.slide-container .slider #africana {
   background: url("../../images/africana.png") no-repeat;
   background-size: 100%;
   background-position: center center;
   box-shadow: -36px 54px 83px rgba(0, 0, 0, 0.65);
   border-radius: 20px;
   position: relative;
-  height: inherit;
 }
-.slide-container .slide #africana .description {
+.slide-container .slider #africana .description {
   font-family: "Poppins";
   position: absolute;
   color: #f5fdff;
   top: 60%;
   left: 10%;
 }
-.slide-container .slide #africana .description h1 {
+.slide-container .slider #africana .description h1 {
   font-size: 1.5em;
   font-weight: 400;
 }
-@media screen and (min-width: 600px) {
-  .slide-container .slide #africana .description h1 {
-    font-size: 2.5em;
+@media (min-width: 600px) {
+  .slide-container .slider #africana .description h1 {
+    font-size: 2em;
   }
 }
-.slide-container .slide #africana .description span {
+.slide-container .slider #africana .description span {
   font-size: 12px;
   opacity: 0.72;
 }
-.slide-container .slide #nok {
+@media (min-width: 600px) {
+  .slide-container .slider #africana {
+    background-size: 80%;
+  }
+}
+.slide-container .slider #nok {
   background: url("../../images/nok.png") no-repeat;
   background-size: 100%;
-  background-position: center center;
+  background-position: 70% center;
   box-shadow: -36px 54px 83px rgba(0, 0, 0, 0.65);
   border-radius: 20px;
   position: relative;
-  height: inherit;
 }
-.slide-container .slide #nok .description {
+.slide-container .slider #nok .description {
   font-family: "Poppins";
   position: absolute;
   color: #f5fdff;
   top: 60%;
-  left: 0;
+  left: 10%;
 }
-.slide-container .slide #nok .description h1 {
+.slide-container .slider #nok .description h1 {
   font-size: 1.5em;
   font-weight: 400;
 }
-@media screen and (min-width: 600px) {
-  .slide-container .slide #nok .description h1 {
-    font-size: 2.5em;
+@media (min-width: 600px) {
+  .slide-container .slider #nok .description h1 {
+    font-size: 2em;
   }
 }
-.slide-container .slide #nok .description span {
+.slide-container .slider #nok .description span {
   font-size: 12px;
   opacity: 0.72;
 }
-@media screen and (min-width: 600px) {
-  .slide-container .slide {
-    grid-template-rows: repeat(2, 100%);
-    grid-template-columns: repeat(2, 45%);
-    -moz-column-gap: 5%;
-         column-gap: 5%;
-    row-gap: 100px;
+@media (min-width: 600px) {
+  .slide-container .slider #nok {
+    background-size: 80%;
+  }
+}
+@media (min-width: 600px) {
+  .slide-container .slider {
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100%;
+  }
+}
+@media (min-width: 600px) {
+  .slide-container {
+    overflow-y: hidden;
   }
 }/*# sourceMappingURL=style.css.map */

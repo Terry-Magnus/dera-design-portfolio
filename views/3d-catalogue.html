@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Derah's Designs</title>
 
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
-    />
+    /> -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,57 +28,67 @@
     ></script>
   </head>
   <body>
-    <div class="nav-container">
-      <div class="image-wrap">
-        <img src="../public/images/logo.png" alt="" />
-      </div>
-      <header></header>
-      <!-- end of header element -->
-    </div>
+    <nav class="navbar">
+      <img src="../public/images/logo.png" alt="logo" />
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catalogue.html">Catalogue</a></li>
+        <li><a href="#">Connect</a></li>
+      </ul>
+      <div class="menu-toggle">&#9776;</div>
+      <div class="close-toggle">&times;</div>
+    </nav>
     <!-- end of nav-container div -->
 
     <div class="slide-container">
-      <button id="slide-up"></button>
-      <button id="slide-down"></button>
-      <div class="slide">
-        <div class="slide-card" id="jankins">
-          <!--Each design is in a card-->
-          <div class="description">
-            <h1>
-              OLD <br />
-              MAN <br />
-              JANKINS<br />
-            </h1>
-            <span>. gloom . depression . age</span>
+      <button id="slide-up">
+        <img src="../public/images/arrow-down.png" alt="arrow-down" />
+      </button>
+      <button id="slide-down">
+        <img src="../public/images/arrow-down.png" alt="arrow-down" />
+      </button>
+      <div class="slider">
+        <div class="slide-group" id="group1">
+          <div class="slide-card" id="jankins">
+            <!--Each design is in a card-->
+            <div class="description">
+              <h1>
+                OLD <br />
+                MAN <br />
+                JANKINS<br />
+              </h1>
+              <span>. gloom . depression . age</span>
+            </div>
+          </div>
+          <div class="slide-card" id="ralph">
+            <div class="description">
+              <h1>
+                RALPH <br />
+                THE <br />
+                ROBOT<br />
+              </h1>
+              <span>. minimal . humanoid . expression</span>
+            </div>
           </div>
         </div>
-        <div class="slide-card" id="ralph">
-          <div class="description">
-            <h1>
-              RALPH <br />
-              THE <br />
-              ROBOT<br />
-            </h1>
-
-            <span>. minimal . humanoid . expression</span>
+        <div class="slide-group" id="group2">
+          <div class="slide-card" id="africana">
+            <div class="description">
+              <h1>
+                ART <br />
+                AFRICANA<br />
+              </h1>
+              <span>. historical . traditional . sculpt</span>
+            </div>
           </div>
-        </div>
-        <div class="slide-card" id="africana">
-          <div class="description">
-            <h1>
-              ART <br />
-              AFRICANA<br />
-            </h1>
-            <span>. historical . traditional . sculpt</span>
-          </div>
-        </div>
-        <div class="slide-card" id="nok">
-          <div class="description">
-            <h1>
-              N.O.K <br />
-              AFRICA<br />
-            </h1>
-            <span>. tribal . cultural . historical</span>
+          <div class="slide-card" id="nok">
+            <div class="description">
+              <h1>
+                N.O.K <br />
+                AFRICA<br />
+              </h1>
+              <span>. tribal . cultural . historical</span>
+            </div>
           </div>
         </div>
       </div>
@@ -86,12 +96,60 @@
     </div>
 
     <script>
-      const sliderContainer = document.querySelector(".slide-container");
-      const slideUp = document.querySelector("#slide-up");
-      const slideDown = document.querySelector("#slide-down");
-      const ralphImg = document.querySelector("#ralph img");
-      const scrollUp = document.querySelector("#slide-up");
-      const { innerHeight, scrollY } = window;
+      const controlPrev = document.querySelector("#slide-up");
+      const controlNext = document.querySelector("#slide-down");
+      const slider = document.querySelector(".slider");
+      const groups = document.querySelectorAll(".slide-group");
+      let currentGroupIndex = 0;
+
+      //Set slider animation
+      let updateSliderPosition = () => {
+        slider.style.transform = `translateY(-${currentGroupIndex * 100}%)`;
+        slider.style.transition = "all 0.5s ease";
+      };
+
+      //Navigate to previous slide
+      // Previous slide button doesn't show till the next slide
+      let showPrevGroup = () => {
+        if (currentGroupIndex > 0) {
+          currentGroupIndex--;
+          updateSliderPosition();
+          controlPrev.style.display = "none";
+          controlNext.style.display = "block";
+        }
+      };
+
+      //Navigate to the next slide
+      // Next slide button doesn't show till the next slide
+
+      let showNextGroup = () => {
+        if (currentGroupIndex < groups.length - 1) {
+          currentGroupIndex++;
+          controlPrev.style.display = "block";
+          controlNext.style.display = "none";
+          updateSliderPosition();
+        }
+      };
+
+      controlPrev.addEventListener("click", showPrevGroup);
+      controlNext.addEventListener("click", showNextGroup);
+
+      //Navbar mobile menu controls
+      const menuToggle = document.querySelector(".menu-toggle");
+      const closeToggle = document.querySelector(".close-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuToggle.addEventListener("click", function () {
+        navLinks.style.display = "flex";
+        closeToggle.style.display = "block";
+        menuToggle.style.display = "none";
+      });
+
+      closeToggle.addEventListener("click", function () {
+        navLinks.style.display = "none";
+        closeToggle.style.display = "none";
+        menuToggle.style.display = "block";
+      });
     </script>
   </body>
 </html>
