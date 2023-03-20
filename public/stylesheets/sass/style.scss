@@ -25,10 +25,9 @@ body {
 // Navbar styles//
 .navbar {
     display: flex;
-    position: fixed;
     justify-content: space-between;
     align-items: center;
-    background-color: none;
+    background: none;
     padding: 10px;
     width: 100%;
 
@@ -37,6 +36,7 @@ body {
         justify-content: space-between;
         padding: 0;
         width: 20em;
+        height: 100%;
 
         @media (max-width: $bp-small) {
             flex-direction: column;
@@ -444,4 +444,54 @@ body {
     @media (min-width: $bp-small) {
         overflow-y: hidden;
     }
+}
+
+/***** Connect page styles *****/
+.hero {
+    font-family: "Poppins";
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: sticky;
+
+
+    img:nth-child(1) {
+        width: 20%;
+        margin-left: 5%;
+    }
+
+    img:nth-child(2) {
+        width: 70%;
+    }
+
+    h1 {
+        color: $textWhite;
+        text-transform: uppercase;
+        font-size: 5vw;
+
+        .bold {
+            @media (min-width: $bp-small) {
+                font-size: 3.5vw;
+            }
+        }
+
+        @media(min-width: $bp-small) {
+            font-size: 2.5vw;
+            margin: 20vh 25vw 0 0;
+
+        }
+    }
+
+    @media (min-width: $bp-small) {
+        transform: translateY(-15vh);
+
+    }
+}
+
+.connect {
+    color: $textWhite
+}
+
+.skills {
+    color: $textWhite;
 }

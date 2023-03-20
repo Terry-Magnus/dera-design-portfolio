@@ -15,10 +15,9 @@ body {
 /***************Reusable styles **********************/
 .navbar {
   display: flex;
-  position: fixed;
   justify-content: space-between;
   align-items: center;
-  background-color: none;
+  background: none;
   padding: 10px;
   width: 100%;
 }
@@ -27,6 +26,7 @@ body {
   justify-content: space-between;
   padding: 0;
   width: 20em;
+  height: 100%;
 }
 @media (max-width: 600px) {
   .navbar .nav-links {
@@ -464,4 +464,49 @@ body {
   .slide-container {
     overflow-y: hidden;
   }
+}
+
+/***** Connect page styles *****/
+.hero {
+  font-family: "Poppins";
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: sticky;
+}
+.hero img:nth-child(1) {
+  width: 20%;
+  margin-left: 5%;
+}
+.hero img:nth-child(2) {
+  width: 70%;
+}
+.hero h1 {
+  color: #f5fdff;
+  text-transform: uppercase;
+  font-size: 5vw;
+}
+@media (min-width: 600px) {
+  .hero h1 .bold {
+    font-size: 3.5vw;
+  }
+}
+@media (min-width: 600px) {
+  .hero h1 {
+    font-size: 2.5vw;
+    margin: 20vh 25vw 0 0;
+  }
+}
+@media (min-width: 600px) {
+  .hero {
+    transform: translateY(-15vh);
+  }
+}
+
+.connect {
+  color: #f5fdff;
+}
+
+.skills {
+  color: #f5fdff;
 }/*# sourceMappingURL=style.css.map */
