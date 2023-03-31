@@ -93,41 +93,9 @@ body {
 }
 
 // End of Navbar styles//
-@mixin textbackgroundStyles {
-    position: fixed;
-    font-family: "Ubuntu";
-    font-size: 15em;
-    font-weight: 700;
-    color: $textBlack;
-    opacity: 0.34;
-    text-shadow: -31px 4px 37px rgba(0, 0, 0, 0.25);
-    text-align: center;
-
-    @media (min-width: $bp-small) {
-        font-size: 18em;
-    }
-}
 
 
-@mixin cardTextStyles {
-    font-family: "Poppins";
-    position: absolute;
-    color: $textWhite;
 
-    h1 {
-        font-size: 1.5em;
-        font-weight: 400;
-
-        @media (min-width: $bp-small) {
-            font-size: 2em;
-        }
-    }
-
-    span {
-        font-size: 12px;
-        opacity: 0.72;
-    }
-}
 
 .pexel {
     position: absolute;
@@ -179,6 +147,26 @@ body {
     }
 }
 
+
+
+/***************************************** end of Reusable styles ******************************************/
+
+/************************* Main catalogue page styles ***************************************/
+@mixin textbackgroundStyles {
+    position: fixed;
+    font-family: "Ubuntu";
+    font-size: 15em;
+    font-weight: 700;
+    color: $textBlack;
+    opacity: 0.34;
+    text-shadow: -31px 4px 37px rgba(0, 0, 0, 0.25);
+    text-align: center;
+
+    @media (min-width: $bp-small) {
+        font-size: 18em;
+    }
+}
+
 .des-wrap {
     top: 20%;
     left: 25%;
@@ -201,10 +189,6 @@ body {
     }
 }
 
-
-/***************************************** end of Reusable styles ******************************************/
-
-/************************* Main catalogue page styles ***************************************/
 .catalogue {
     /* Container for the links to each category*/
     position: relative;
@@ -279,7 +263,30 @@ body {
 }
 
 /********************* end of main catalogue page styles ***************/
+
+
 /******* 3d Catalogue Page Styles *******/
+@mixin cardTextStyles {
+    font-family: "Poppins";
+    position: absolute;
+    color: $textWhite;
+
+    h1 {
+        font-size: 1.5em;
+        font-weight: 400;
+
+        @media (min-width: $bp-small) {
+            font-size: 2em;
+        }
+    }
+
+    span {
+        font-size: 12px;
+        opacity: 0.72;
+    }
+}
+
+
 .slide-container {
     height: 100%;
     width: 100%;
